@@ -35,7 +35,7 @@ export default function About() {
       ) : (
         <>
           <p className="mb-3">
-            I'm a person who likes to mess around.
+            {`I'm a person who likes to mess around.`}
             {/* <span className="font-medium italic"> Digital Publishing</span> at {}
             <span className="italic underline">
               <a href="https://en.wikipedia.org/wiki/Wuhan_University" target="_blank">
