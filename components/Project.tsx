@@ -58,14 +58,7 @@ export default function Project({
 
     // 在微信环境中打开搜索链接
     if (isWx) {
-      // 先检查是否已经打开了微信
-      if (window.navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1) {
-        setIsWxOpened(true)
-        window.location.href = url
-      } else {
-        setIsWxOpened(false)
-        alert('请在微信中打开小程序搜索：e嘉人')
-      }
+      window.location.href = url
     } else {
       alert('请在微信中打开小程序搜索：e嘉人')
     }
