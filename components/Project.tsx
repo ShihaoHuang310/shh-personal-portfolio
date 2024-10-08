@@ -41,8 +41,11 @@ export default function Project({
   useEffect(() => {
     // 检测是否在微信环境中
     function isWechat() {
+      // const ua = navigator.userAgent.toLowerCase()
+      // return ua.indexOf('micromessenger') !== -1
       const ua = navigator.userAgent.toLowerCase()
-      return ua.match(/MicroMessenger/i) === 'micromessenger'
+      const match = ua.match(/MicroMessenger/i)
+      return match !== null
     }
     setIsWeixin(isWechat())
   }, [])
