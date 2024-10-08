@@ -274,7 +274,7 @@ export const experiencesDataZn = [
   },
   {
     title: '计算机科学与技术学士',
-    location: '胡南涉外经济学院',
+    location: '门头沟学院',
     description: [
       {
         info: '主修课程Java/软件工程/计算机网络/数据库原理等',
