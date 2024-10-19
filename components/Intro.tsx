@@ -191,7 +191,7 @@ export default function Intro() {
           <BsArrowRight className="opacity-70 group-hover:translate-x-1 transition" />
         </Link> */}
         {/* point start */}
-        <div className="absolute left-12 top-10 hidden sm:block">
+        <div className="absolute -left-12 top-10 hidden sm:block">
           <Image
             src={activeLocale === 'en' ? '/downloadEn.png' : '/download.png'}
             alt="下载简历"
