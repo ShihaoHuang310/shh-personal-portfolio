@@ -132,7 +132,31 @@ export default function Project({
           <p className="mt-2 leading-relaxed text-gray-700 dark:text-white/70">
             {activeLocale === 'zh' ? desc_zh : description}
           </p>
-          <ul className="flex flex-wrap mt-auto gap-2">
+          <div className="block sm:hidden">
+            <ul className="flex flex-wrap mt-auto gap-2">
+              {tags.map((tag, index) =>
+                activeLocale === 'zh' ? (
+                  <li
+                    className="bg-black/[0.7] px-3 py-1 text-[0.7rem] uppercase tracking-wider text-white rounded-full dark:text-white/70 cursor-pointer tooltip"
+                    key={index}>
+                    {tag.zh}
+                  </li>
+                ) : (
+                  tag.en && ( // 只有当 tag.en 不为空时才渲染该 li
+                    <li
+                      className="bg-black/[0.7] px-3 py-1 text-[0.7rem] uppercase tracking-wider text-white rounded-full dark:text-white/70 cursor-pointer tooltip"
+                      key={index}>
+                      {tag.en}
+                    </li>
+                  )
+                )
+              )}
+            </ul>
+          </div>
+        </div>
+
+        <div className="h-[15%]  w-full  justify-center items-center hidden sm:flex">
+          <ul className="flex flex-wrap  gap-2">
             {tags.map((tag, index) =>
               activeLocale === 'zh' ? (
                 <li
@@ -152,7 +176,6 @@ export default function Project({
             )}
           </ul>
         </div>
-
         <Image
           src={imageUrl}
           alt="Project I worked on"
