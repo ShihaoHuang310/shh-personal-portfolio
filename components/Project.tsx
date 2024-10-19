@@ -20,7 +20,6 @@ export default function Project({
   desc_zh,
   title_zh,
   tags,
-  tags_en,
   imageUrl,
   projectUrl,
   demoUrl
@@ -33,7 +32,7 @@ export default function Project({
   const scaleProgess = useTransform(scrollYProgress, [0, 1], [0.8, 1])
   const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.6, 1])
   const activeLocale = useLocale()
-  const tagsList = activeLocale === 'zh' ? tags : tags_en
+  // const tagsList = activeLocale === 'zh' ? tags : tags_en
 
   // 跳转微信小程序
   const [isWeixin, setIsWeixin] = useState(false)
@@ -134,13 +133,23 @@ export default function Project({
             {activeLocale === 'zh' ? desc_zh : description}
           </p>
           <ul className="flex flex-wrap mt-auto gap-2">
-            {tagsList.map((tag, index) => (
-              <li
-                className="bg-black/[0.7] px-3 py-1 text-[0.7rem] uppercase tracking-wider text-white rounded-full dark:text-white/70"
-                key={index}>
-                {tag}
-              </li>
-            ))}
+            {tags.map((tag, index) =>
+              activeLocale === 'zh' ? (
+                <li
+                  className="bg-black/[0.7] px-3 py-1 text-[0.7rem] uppercase tracking-wider text-white rounded-full dark:text-white/70 cursor-pointer tooltip"
+                  key={index}>
+                  {tag.zh}
+                </li>
+              ) : (
+                tag.en && ( // 只有当 tag.en 不为空时才渲染该 li
+                  <li
+                    className="bg-black/[0.7] px-3 py-1 text-[0.7rem] uppercase tracking-wider text-white rounded-full dark:text-white/70 cursor-pointer tooltip"
+                    key={index}>
+                    {tag.en}
+                  </li>
+                )
+              )
+            )}
           </ul>
         </div>
 
